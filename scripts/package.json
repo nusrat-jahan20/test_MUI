@@ -1,0 +1,40 @@
+{
+  "name": "scripts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gcp:setup": "node ./gcp-setup.js",
+    "gh:clean": "node --no-warnings ./clean.js",
+    "gh:deployments": "node --no-warnings ./github.js deployments",
+    "gh:deployment-status": "node --no-warnings ./github.js deployment-status",
+    "gh:create-deployment": "node --no-warnings ./github.js create-deployment",
+    "gh:delete-deployment": "node --no-warnings ./github.js delete-deployment"
+  },
+  "dependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/register": "^7.21.0",
+    "@google-cloud/storage": "^6.10.0",
+    "@octokit/rest": "^19.0.7",
+    "@types/cross-spawn": "^6.0.2",
+    "api": "workspace:*",
+    "cross-spawn": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "envars": "^0.4.0",
+    "execa": "^7.1.1",
+    "globby": "^13.1.4",
+    "got": "^12.6.0",
+    "inquirer": "^9.2.0",
+    "lodash-es": "^4.17.21",
+    "minimist": "^1.2.8",
+    "ora": "^6.3.0",
+    "toml": "^3.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "wrangler": "^2.19.0",
+    "zx": "^7.2.2"
+  },
+  "envars": {
+    "cwd": "../env"
+  }
+}

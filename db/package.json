@@ -1,0 +1,62 @@
+{
+  "name": "db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "types": "types.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types.ts",
+      "default": "./types.ts"
+    }
+  },
+  "scripts": {
+    "db:create": "yarn zx ./scripts/create.js",
+    "db:version": "knex migrate:currentVersion",
+    "db:change": "knex migrate:make",
+    "db:migrate": "knex migrate:latest",
+    "db:rollback": "knex migrate:rollback",
+    "db:seed": "knex seed:run",
+    "db:reset": "yarn zx ./scripts/reset.js",
+    "db:backup": "yarn zx ./scripts/backup.js",
+    "db:restore": "yarn zx ./scripts/restore.js",
+    "db:generate": "yarn zx ./scripts/generate.js",
+    "db:import-seeds": "yarn zx ./scripts/import-seeds.js",
+    "db:update-types": "yarn zx ./scripts/update-types.js",
+    "db:repl": "yarn zx ./scripts/repl.js",
+    "db:psql": "yarn zx ./scripts/psql.js"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@jest/types": "^29.5.0",
+    "@types/minimist": "^1.2.2",
+    "@types/prettier": "^2.7.2",
+    "chalk": "^5.2.0",
+    "envars": "^0.4.0",
+    "execa": "^7.1.1",
+    "knex": "^2.4.2",
+    "knex-types": "^0.5.0",
+    "minimist": "^1.2.8",
+    "nanoid": "^4.0.2",
+    "nanospinner": "^1.1.0",
+    "ora": "^6.3.0",
+    "pg": "^8.10.0",
+    "prettier": "^2.8.8",
+    "zx": "^7.2.2"
+  },
+  "envars": {
+    "cwd": "../env"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "types.d.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/no-explicit-any": "off"
+        }
+      }
+    ]
+  }
+}
